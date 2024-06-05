@@ -1,27 +1,24 @@
-# HelloComputing
+# Hello Computing Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+## Introduction
 
-## Development server
+Welcome to my solution , This project showcases a responsive Angular web application that was to fetches data from provided endpoints and displays it on a single page but the enpoint ws unabble to be access
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+## Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone this repository to your local machine, yyou can use this step :
+   git init
+   git clone https://github.com/kemogne654/Hello-computer-challenge-test.git
+   before cloning make sure that you have selected a repository on ypur pc.
+2. Navigate to the project directory in your terminal.
+3. Run `npm install` to install dependencies.
 
-## Build
+## Running the Application
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To run the application locally, use the following command:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+ng serve
+and test with the command:
+ng test
