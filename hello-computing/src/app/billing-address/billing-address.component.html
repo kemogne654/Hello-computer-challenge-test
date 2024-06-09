@@ -1,24 +1,21 @@
 <div class="header">
   <img src="assets/menudrawer.png" class="menu-icon1" alt="" />
   <div class="title">
-    <h1>{{ pageSelectBillingAddress?.title || 'Smart Check-Out' }}</h1>
+    <h1>{{ pageSelectBillingAddress?.global.title || 'loading....' }}</h1>
   </div>
   <div class="flag-icon">
     <img src="assets/eng.png" alt="" />
   </div>
 </div>
-
 <div class="line">
   <hr style="color: rgb(83, 206, 26)" />
 </div>
-
 <div class="container">
   <div class="header">
-    <h1>{{ pageSelectBillingAddress?.heading }}</h1>
-    <p>{{ pageSelectBillingAddress?.description }}</p>
+    <h1>{{ pageSelectBillingAddress?.content.heading }}</h1>
   </div>
-
-  <div *ngFor="let address of organismBillingAddresses" class="address-card" (click)="selectAddress(address.id)">
+  <p>{{ pageSelectBillingAddress?.content.description }}</p>
+  <div *ngFor="let address of organismBillingAddresses" class="new-address2" (click)="selectAddress(address.id)">
     <h2>{{ address.label }}</h2>
     <p>{{ address.address.street }}</p>
     <p>{{ address.address.postal_code }} - {{ address.address.city }}</p>
@@ -28,6 +25,11 @@
   <div class="add-new-address" (click)="addNewAddress()">
     <h2>Add New</h2>
     <p>Billing Address</p>
+  </div>
+  <hr style="color: blue" />
+   <div class="buttons">
+    <button (click)="goBack()">{{ pageSelectBillingAddress?.backButton || 'Back' }}</button>
+    <button mat-raised-button color="primary">{{ pageSelectBillingAddress?.submitButton || 'Submit' }}</button>
   </div>
 </div>
 
