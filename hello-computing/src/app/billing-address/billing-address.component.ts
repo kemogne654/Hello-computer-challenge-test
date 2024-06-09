@@ -1,21 +1,41 @@
-// src/app/billing-address/billing-address.component.ts
-import { Component, Input } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, OnInit } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { BillingDataService } from '../billing-data.service';
+
 @Component({
   selector: 'app-billing-address',
+  standalone: true,
+  imports: [CommonModule, HttpClientModule], // Include HttpClientModule here
   templateUrl: './billing-address.component.html',
   styleUrls: ['./billing-address.component.css'],
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
+  providers: [BillingDataService],
 })
-export class BillingAddressComponent {
-  @Input() addresses: { billingAddresses: any[] } = { billingAddresses: [] };
+export class BillingAddressComponent implements OnInit {
+  pageSelectBillingAddress: any;
+  organismBillingAddresses: any;
 
-  selectAddress(address: any) {
-    this.addresses.billingAddresses.forEach((a: any) => (a.selected = false));
-    address.selected = true;
+  constructor(private billingDataService: BillingDataService) {}
+
+  ngOnInit(): void {
+    this.billingDataService.getPageSelectBillingAddress().subscribe((data) => {
+      this.pageSelectBillingAddress = data;
+    });
+
+    this.billingDataService.getOrganismBillingAddresses().subscribe((data) => {
+      this.organismBillingAddresses = data.data; // Assuming the addresses are under the 'data' key
+    });
+  }
+
+  selectAddress(addressId: number): void {
+    console.log('Selected address ID:', addressId);
+  }
+
+  addNewAddress(): void {
+    console.log('Add new address');
+  }
+
+  goBack(): void {
+    console.log('Go back');
   }
 }

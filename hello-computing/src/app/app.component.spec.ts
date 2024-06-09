@@ -1,32 +1,49 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { BillingAddressComponent } from './billing-address/billing-address.component';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
+import { BillingDataService } from './billing-data.service';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent, BillingAddressComponent],
-    }).compileComponents();
+describe('BillingDataService', () => {
+  let service: BillingDataService;
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [BillingDataService],
+    });
+    service = TestBed.inject(BillingDataService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 
-  it(`should have as title 'hello-computing'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('hello-computing');
+  it('should fetch pageSelectBillingAddress', () => {
+    const dummyData = { title: 'Test Title' };
+    service.getPageSelectBillingAddress().subscribe((data) => {
+      expect(data.title).toBe('Test Title');
+    });
+    const req = httpMock.expectOne(service['pageSelectBillingAddressUrl']);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyData);
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Smart Check-Out'
-    );
+  it('should fetch organismBillingAddresses', () => {
+    const dummyData = [{ label: 'Deloitte' }];
+    service.getOrganismBillingAddresses().subscribe((data) => {
+      expect(data.length).toBe(1);
+      expect(data[0].label).toBe('Deloitte');
+    });
+    const req = httpMock.expectOne(service['organismBillingAddressesUrl']);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyData);
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 });

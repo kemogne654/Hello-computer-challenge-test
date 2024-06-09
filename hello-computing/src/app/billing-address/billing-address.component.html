@@ -1,68 +1,40 @@
 <div class="header">
-  <img src="../../assets/menudrawer.png" class="menu-icon1" alt="" />
+  <img src="assets/menudrawer.png" class="menu-icon1" alt="" />
   <div class="title">
-    <h1>Smart Check-Out</h1>
+    <h1>{{ pageSelectBillingAddress?.title || 'Loading...' }}</h1>
   </div>
   <div class="flag-icon">
-    <img src="../../assets/eng.png" alt="" />
+    <img src="assets/eng.png" alt="" />
   </div>
 </div>
-<div class="line"><hr style="color: rgb(83, 206, 26)" /></div>
+<div class="line">
+  <hr style="color: rgb(83, 206, 26)" />
+</div>
 <div class="container">
-  <!-- <h1>{{AppDate?header}}</h1> -->
-  <!-- <p>{{Ap}}</p> -->
-  <h1 style="font-size: 32px">Select Billing <br />Address</h1>
+  <h1 style="font-size: 32px">{{ pageSelectBillingAddress?.header || 'Loading...' }}</h1>
   <p class="description">
-    Select your billing address for the extras chosen previously, as well as
-    potential extras added to your account by the hotel. The corporate billing
-    address for the room night was already passed to the hotel.
+    {{ pageSelectBillingAddress?.description || 'Loading...' }}
   </p>
-  <div class="address-card" id="address1">
-    <!-- <div *ngFor="let address of addresses?.billingAddresses" class="billing-address"> -->
-    <!-- since the link was un able to sent data i continue by displaying the previous data -->
-    <!-- <mat-card [class.selected]="address.selected">
-        <h2>{{ address.company }}</h2>
-        <mat-card-content>
-          <p>{{ address.address }}</p>
-          <p>{{ address.city }}</p>
-          <p>{{ address.country }}</p>
-        </mat-card-content>
-        <button mat-icon-button (click)="selectAddress(address)">
-          <mat-icon>check_circle</mat-icon>
-        </button>
-      </mat-card> -->
-    <!-- </div> -->
-    <div class="new-address1" id="address1" onclick="selectAddress(1)">
-      <h2 class="h4">Deloitte</h2>
-      <p>Stralauer Allee 22</p>
-      <p>10245 - Berlin</p>
-      <p>Germany</p>
-    </div>
-    <div class="new-address2" id="address2" onclick="selectAddress(2)">
-      <h2 class="h3">Deloitte</h2>
-      <p>Ohlauer Strasse 223</p>
-      <p>10999 - Berlin</p>
-      <p>Germany</p>
-    </div>
-
-    <div
-      class="add-new-address"
-      style="height: 100px; /* Set desired height here */"
-    >
-      <h2 class="h2">Add New</h2>
-      <br /><br />
-      <p class="p">Billing Address</p>
-    </div>
-    <hr style="color: blue" />
-    <div class="buttons">
-      <button onclick="goBack()">Back</button>
-      <button mat-raised-button color="primary">Submit</button>
-    </div>
+  <div class="address-card" *ngFor="let address of organismBillingAddresses; let i = index" [id]="'address' + i" (click)="selectAddress(i + 1)">
+    <h2 class="h4">{{ address.name }}</h2>
+    <p>{{ address.street }}</p>
+    <p>{{ address.zipCode }} - {{ address.city }}</p>
+    <p>{{ address.country }}</p>
+  </div>
+  <div class="add-new-address" (click)="addNewAddress()">
+    <h2 class="h2">{{ pageSelectBillingAddress?.addNew || 'Add New' }}</h2>
+    <br /><br />
+    <p class="p">{{ pageSelectBillingAddress?.billingAddress || 'Billing Address' }}</p>
+  </div>
+  <hr style="color: blue" />
+   <div class="buttons">
+    <button (click)="goBack()">{{ pageSelectBillingAddress?.backButton || 'Back' }}</button>
+    <button mat-raised-button color="primary">{{ pageSelectBillingAddress?.submitButton || 'Submit' }}</button>
   </div>
 </div>
 <footer class="footer">
-  <div class="footer">CONICHI</div>
-  <div class="footer">SmartHotel</div>
-  <div class="footer">&#64; 2018 - Hotel Beacons Gmbh</div>
+  <div class="footer">{{ pageSelectBillingAddress?.footer1 || 'CONICHI' }}</div>
+  <div class="footer">{{ pageSelectBillingAddress?.footer2 || 'SmartHotel' }}</div>
+  <div class="footer">{{ pageSelectBillingAddress?.footer3 || '&#64; 2018 - Hotel Beacons Gmbh' }}</div>
 </footer>
 
