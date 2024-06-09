@@ -9,15 +9,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 10px 20px;
 
 }
-.address-card {
-  padding: 5px;
-  cursor: pointer;
-}
-
 .menu-icon1{
     width:30px;
   height: 30px;
@@ -34,7 +28,7 @@ body {
   background-size: 52px;
 }
 .add-new-address {
-  display: flex;
+ 
   align-items: left; 
   justify-content: left;
   background: url('../../assets/plus.png');
@@ -42,40 +36,16 @@ body {
   background-position: right;
   background-position-x: 462px;
   background-size: 46px;
+
+  height: 120px;
+  display: flex;
 }
+
 .new-address,.h2{
     color: rgb(255, 255, 255);
     font-size: 33px;
     padding-top: 52px;
 }
-/* div 1 */
-.new-address1 {
- align-items: left; 
-  text-align: left;
-  justify-content: left;
-  background: url('../../assets/pencil.png');
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-x: 492px;
-  background-position-y: 130px;
-  background-size: 46px;
-}
-.new-address1,.h4{
-    color: white;
-    font-size: 13px;
-    padding-top: 52px;
-}
-.new-address1 {
-  background-color: #43d825;
-  color: white;
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: background-color 0.3s;
-}
-/*  */
-/* new adress 2  */
 .new-address2 {
   align-items: left; 
   text-align: left;
@@ -83,13 +53,13 @@ body {
   background: url('../../assets/pencil.png');
   background-repeat: no-repeat;
   background-position: right;
-  background-position-x: 492px;
+  background-position-x: 509px;
   background-position-y: 130px;
   background-color: white;
   background-size: 46px;
 }
 .new-address2:hover {
-  background-color: #0938698e;
+  background-color: #3cd61d8e;
 }
 .new-address2,.h3{
     color: rgb(194, 19, 19);
@@ -101,23 +71,16 @@ body {
   color: rgb(82, 165, 44);
   padding: 5px;
   border-radius: 10px;
+  height: 170px;
   cursor: pointer;
   margin-bottom: 20px;
   transition: background-color 0.3s;
 }
-.new-address1:hover {
-  background-color: #0938698e;
-}
-
-/*  */
-
-
-
 .container {
   max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: 10px auto;
   text-align: center;
+  margin-bottom: 92px;
 }
 
 h1 {
@@ -151,9 +114,6 @@ h1 {
   color:white;
   margin-top: -40px;
 }
-
-
-
 .checkmark {
   position: absolute;
   top: 20px;

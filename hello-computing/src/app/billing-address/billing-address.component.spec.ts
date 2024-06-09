@@ -11,7 +11,7 @@ describe('BillingDataService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule], // Remove AppComponent from imports
+      imports: [HttpClientTestingModule],
       providers: [BillingDataService],
     });
     service = TestBed.inject(BillingDataService);

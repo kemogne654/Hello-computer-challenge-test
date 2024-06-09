@@ -6,7 +6,7 @@ import { BillingDataService } from '../billing-data.service';
 @Component({
   selector: 'app-billing-address',
   standalone: true,
-  imports: [CommonModule, HttpClientModule], // Include HttpClientModule here
+  imports: [CommonModule, HttpClientModule], 
   templateUrl: './billing-address.component.html',
   styleUrls: ['./billing-address.component.css'],
   providers: [BillingDataService],
@@ -23,7 +23,7 @@ export class BillingAddressComponent implements OnInit {
     });
 
     this.billingDataService.getOrganismBillingAddresses().subscribe((data) => {
-      this.organismBillingAddresses = data.data; // Assuming the addresses are under the 'data' key
+      this.organismBillingAddresses = data.data; 
     });
   }
 

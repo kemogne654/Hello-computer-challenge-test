@@ -11,7 +11,7 @@
   <hr style="color: rgb(83, 206, 26)" />
 </div>
 <div class="container">
-  <div class="header">
+  <div class="header1">
     <h1>{{ pageSelectBillingAddress?.content.heading }}</h1>
   </div>
   <p>{{ pageSelectBillingAddress?.content.description }}</p>
@@ -24,12 +24,12 @@
 
   <div class="add-new-address" (click)="addNewAddress()">
     <h2>Add New</h2>
-    <p>Billing Address</p>
+    <p class="p">Billing Address</p>
   </div>
   <hr style="color: blue" />
    <div class="buttons">
-    <button (click)="goBack()">{{ pageSelectBillingAddress?.backButton || 'Back' }}</button>
-    <button mat-raised-button color="primary">{{ pageSelectBillingAddress?.submitButton || 'Submit' }}</button>
+    <button (click)="goBack()" class="back">{{ pageSelectBillingAddress?.backButton || 'Back' }}</button>
+    <button mat-raised-button color="primary" class="submit">{{ pageSelectBillingAddress?.submitButton || 'Submit' }}</button>
   </div>
 </div>
 
