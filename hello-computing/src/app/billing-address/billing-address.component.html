@@ -1,40 +1,38 @@
 <div class="header">
   <img src="assets/menudrawer.png" class="menu-icon1" alt="" />
   <div class="title">
-    <h1>{{ pageSelectBillingAddress?.title || 'Loading...' }}</h1>
+    <h1>{{ pageSelectBillingAddress?.title || 'Smart Check-Out' }}</h1>
   </div>
   <div class="flag-icon">
     <img src="assets/eng.png" alt="" />
   </div>
 </div>
+
 <div class="line">
   <hr style="color: rgb(83, 206, 26)" />
 </div>
+
 <div class="container">
-  <h1 style="font-size: 32px">{{ pageSelectBillingAddress?.header || 'Loading...' }}</h1>
-  <p class="description">
-    {{ pageSelectBillingAddress?.description || 'Loading...' }}
-  </p>
-  <div class="address-card" *ngFor="let address of organismBillingAddresses; let i = index" [id]="'address' + i" (click)="selectAddress(i + 1)">
-    <h2 class="h4">{{ address.name }}</h2>
-    <p>{{ address.street }}</p>
-    <p>{{ address.zipCode }} - {{ address.city }}</p>
-    <p>{{ address.country }}</p>
+  <div class="header">
+    <h1>{{ pageSelectBillingAddress?.heading }}</h1>
+    <p>{{ pageSelectBillingAddress?.description }}</p>
   </div>
+
+  <div *ngFor="let address of organismBillingAddresses" class="address-card" (click)="selectAddress(address.id)">
+    <h2>{{ address.label }}</h2>
+    <p>{{ address.address.street }}</p>
+    <p>{{ address.address.postal_code }} - {{ address.address.city }}</p>
+    <p>{{ address.address.country }}</p>
+  </div>
+
   <div class="add-new-address" (click)="addNewAddress()">
-    <h2 class="h2">{{ pageSelectBillingAddress?.addNew || 'Add New' }}</h2>
-    <br /><br />
-    <p class="p">{{ pageSelectBillingAddress?.billingAddress || 'Billing Address' }}</p>
-  </div>
-  <hr style="color: blue" />
-   <div class="buttons">
-    <button (click)="goBack()">{{ pageSelectBillingAddress?.backButton || 'Back' }}</button>
-    <button mat-raised-button color="primary">{{ pageSelectBillingAddress?.submitButton || 'Submit' }}</button>
+    <h2>Add New</h2>
+    <p>Billing Address</p>
   </div>
 </div>
+
 <footer class="footer">
   <div class="footer">{{ pageSelectBillingAddress?.footer1 || 'CONICHI' }}</div>
   <div class="footer">{{ pageSelectBillingAddress?.footer2 || 'SmartHotel' }}</div>
   <div class="footer">{{ pageSelectBillingAddress?.footer3 || '&#64; 2018 - Hotel Beacons Gmbh' }}</div>
 </footer>
-

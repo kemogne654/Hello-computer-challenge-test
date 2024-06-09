@@ -10,5 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'hello-computing';
+  title = 'Smart Check-Out';
 }
+

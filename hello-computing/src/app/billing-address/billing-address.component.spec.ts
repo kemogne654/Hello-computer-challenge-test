@@ -23,9 +23,9 @@ describe('BillingDataService', () => {
   });
 
   it('should fetch pageSelectBillingAddress', () => {
-    const dummyData = { title: 'Test Title' };
+    const dummyData = { title: 'Smart Check-out' };
     service.getPageSelectBillingAddress().subscribe((data) => {
-      expect(data.title).toBe('Test Title');
+      expect(data.title).toBe('Smart Check-out');
     });
     const req = httpMock.expectOne(service['pageSelectBillingAddressUrl']);
     expect(req.request.method).toBe('GET');

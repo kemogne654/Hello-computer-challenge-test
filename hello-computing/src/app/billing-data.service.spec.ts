@@ -8,8 +8,7 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [AppComponent],
+      imports: [HttpClientTestingModule, AppComponent], // Include AppComponent in imports
     }).compileComponents();
   }));
 
@@ -23,14 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have as title "Smart Check-Out"', waitForAsync(() => {
-    // Mock any async operations here if necessary
-    fixture.whenStable().then(() => {
-      fixture.detectChanges();
-      const compiled = fixture.nativeElement as HTMLElement;
-      expect(compiled.querySelector('.content span')?.textContent).toContain(
-        'Smart Check-Out'
-      );
-    });
-  }));
+  it('should have as title "Smart Check-out"', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.content span')?.textContent).toContain(
+      'Smart Check-out'
+    );
+  });
 });
